@@ -25,12 +25,15 @@
         content.append(label);
         let button2 = document.createElement("input");
         button2.type = 'button';
+        button2.className = "button-primary";
         button2.value = 'Click me too!';
         button2.onclick = function () {
-            let label = document.createElement('label');
-            label.id = 'back';
-            label.innerHTML = "<a href='..'>Great! Return to menu</a>";
-            content.append(label)
+            if (document.getElementById("back") == null) {
+                let label = document.createElement('label');
+                label.id = 'back';
+                label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+                content.append(label)
+            }
         };
         content.append(button2)
     }
