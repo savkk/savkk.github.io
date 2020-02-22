@@ -7,6 +7,8 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/skeleton.css">
+    <script src="../js/cookie.js"></script>
+
 </head>
 <body>
 <div class="container">
@@ -33,7 +35,8 @@
                 let label = document.createElement('label');
                 label.id = 'back';
                 label.innerHTML = "<a href='..'>Great! Return to menu</a>";
-                content.append(label)
+                content.append(label);
+                setCookie("button", "true")
             }
         };
         content.append(button2)
