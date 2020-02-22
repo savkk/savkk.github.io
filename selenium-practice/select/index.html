@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - Checkboxes and Radio</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="content" class="eleven column" style="margin-top: 25%">
+            <label for="selectDemoInput">Select any option</label>
+            <select class="u-full-width" id="selectDemoInput">
+                <option value="">-</option>
+                <option value="Option 1">Option1</option>
+                <option value="Option 2">Option2</option>
+                <option value="Option 3">Option3</option>
+            </select>
+            <button id="go" class="button-primary">Get Results</button>
+            <label id="result"></label>
+        </div>
+    </div>
+</div>
+<script>
+    go.onclick = function () {
+        let selectedValue = document.getElementById("selectDemoInput").value;
+        if (selectedValue !== "") {
+            result.textContent = selectedValue;
+            showBack()
+        }
+    };
+
+    function showBack() {
+        let label = document.createElement('label');
+        label.id = 'back';
+        label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+        content.append(label)
+    }
+</script>
+</body>
+</html>
