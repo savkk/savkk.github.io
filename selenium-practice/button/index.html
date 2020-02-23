@@ -7,13 +7,13 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/skeleton.css">
-    <script src="../js/cookie.js"></script>
-
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div id="content" class="eleven column" style="margin-top: 25%">
+        <div id="content" class="eleven column" style="margin-top: 10%">
             <h1>Button</h1>
             <button id="first">Click me!</button>
             <label id="result"></label>
@@ -36,7 +36,7 @@
                 label.id = 'back';
                 label.innerHTML = "<a href='..'>Great! Return to menu</a>";
                 content.append(label);
-                setCookie("button", "true")
+                Cookies.set("button", "done")
             }
         };
         content.append(button2)

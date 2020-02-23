@@ -7,33 +7,35 @@
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="css/normalize.css">
     <link rel="stylesheet" href="css/skeleton.css">
-    <script src="js/cookie.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div class="eleven column" style="margin-top: 25%">
+        <div class="eleven column" style="margin-top: 10%">
             <h1>Selenium WebDriver Practice Page</h1>
             <ol>
                 <li><a id="button" href="button">Button</a></li>
                 <li><a id="checkbox" href="checkboxes">Checkbox and Radio</a></li>
                 <li><a id="select" href="select">Select</a></li>
-                <li>Form</li>
+                <li><a id="form" href="form">Form</a></li>
                 <li>Frame</li>
                 <li>Prompt, Alert and Confirm</li>
                 <li>Drag'n'Drop</li>
+                <li>Demo Application</li>
             </ol>
         </div>
     </div>
 </div>
 <script>
-    if (getCookie("button") !== undefined) {
+    if (Cookies.get("button") !== undefined) {
         document.getElementById("button").style.setProperty("text-decoration", "line-through")
     }
-    if (getCookie("checkbox") !== undefined) {
+    if (Cookies.get("checkboxes") !== undefined) {
         document.getElementById("checkbox").style.setProperty("text-decoration", "line-through")
     }
-    if (getCookie("select") !== undefined) {
+    if (Cookies.get("select") !== undefined) {
         document.getElementById("select").style.setProperty("text-decoration", "line-through")
     }
 </script>

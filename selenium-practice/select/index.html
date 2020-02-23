@@ -2,42 +2,80 @@
 <html lang="en">
 <head>
     <meta charset="utf-8">
-    <title>Selenium Practice Page - Checkboxes and Radio</title>
+    <title>Selenium Practice Page - Select</title>
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
     <link rel="stylesheet" href="../css/normalize.css">
     <link rel="stylesheet" href="../css/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
 </head>
 <body>
 <div class="container">
     <div class="row">
-        <div id="content" class="eleven column" style="margin-top: 25%">
-            <label for="selectDemoInput">Select any option</label>
-            <select class="u-full-width" id="selectDemoInput">
-                <option value="">-</option>
-                <option value="Option 1">Option1</option>
-                <option value="Option 2">Option2</option>
-                <option value="Option 3">Option3</option>
+        <div id="content" class="eleven column" style="margin-top: 10%">
+            <label>Select your hero:</label>
+            <select class="u-full-width" name="hero">
+                <option selected="selected" value="">-</option>
+                <option>John von Neumann</option>
+                <option>Alan Mathison Turing</option>
+                <option>Niklaus Wirth</option>
+                <option>Dennis Ritchie</option>
+                <option>Kenneth Thompson</option>
+                <option>Bjarne Stroustrup</option>
+                <option>Barbara Jane Liskov</option>
+                <option>Grady Booch</option>
+                <option>Linus Torvalds</option>
+                <option>Thomas Eugene Kurtz</option>
+                <option>Donald Ervin Knuth</option>
+                <option>Edgar Frank Codd</option>
+                <option>Frederick Phillips Brooks, Jr.</option>
             </select>
+            <label name="result"></label>
+
+            <label>Select your programming languages:</label>
+            <select class="u-full-width" size="4" multiple="multiple" name="languages" required>
+                <option value="Java">Java</option>
+                <option value="Python">Python</option>
+                <option value="C++">C++</option>
+                <option value="C#">C#</option>
+                <option value="Pascal">Pascal</option>
+                <option value="Assembler">Assembler</option>
+                <option value="PHP">PHP</option>
+                <option value="Basic">Basic</option>
+                <option value="Scala">Scala</option>
+                <option value="Golang">Golang</option>
+            </select>
+            <label name="result"></label>
+
             <button id="go" class="button-primary">Get Results</button>
-            <label id="result"></label>
+
         </div>
     </div>
 </div>
 <script>
+
     go.onclick = function () {
-        let selectedValue = document.getElementById("selectDemoInput").value;
-        if (selectedValue !== "") {
-            result.textContent = selectedValue;
+        let hero = $('select[name ="hero"]').val();
+        if (hero !== "") {
+            $('select[name ="hero"] + label[name="result"]').text(hero);
+        }
+        let lang = $('select[name ="languages"]').val();
+        if (lang.length !== 0) {
+            $('select[name ="languages"] + label[name="result"]').text(lang.join(", "));
+        }
+        if (hero !== "" && lang.length !== 0) {
             showBack()
         }
+
     };
 
     function showBack() {
         let label = document.createElement('label');
         label.id = 'back';
         label.innerHTML = "<a href='..'>Great! Return to menu</a>";
-        content.append(label)
+        content.append(label);
+        Cookies.set("select", "done")
     }
 </script>
 </body>
