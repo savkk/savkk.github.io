@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - Frame</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="content" class="eleven column" style="margin-top: 10%">
+            <h1>IFrame</h1>
+            <iframe id="code-frame" src="content.html" frameborder="0">Your browser does not support frames
+            </iframe>
+            <label>Enter code:</label>
+            <input name="code" type="text">
+            <input name="ok" type="button" value="Verify">
+        </div>
+    </div>
+</div>
+<script>
+    $("input[name='ok']").click(function () {
+        let code = $("#code-frame").contents().find("#code").text().substring(14);
+        let enteredCode = $("input[name='code']").val();
+        if (code === enteredCode) {
+            showBack();
+        }
+    });
+
+    function showBack() {
+        if ($("#back").length === 0) {
+            let label = document.createElement('label');
+            label.id = 'back';
+            label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+            content.append(label);
+            Cookies.set("iframe", "done")
+        }
+    }
+</script>
+</body>
+</html>

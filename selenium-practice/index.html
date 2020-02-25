@@ -20,7 +20,7 @@
                 <li><a id="checkbox" href="checkboxes">Checkbox and Radio</a></li>
                 <li><a id="select" href="select">Select</a></li>
                 <li><a id="form" href="form">Form</a></li>
-                <li>Frame</li>
+                <li><a id="iframe" href="iframe">IFrame</a></li>
                 <li>Prompt, Alert and Confirm</li>
                 <li>Drag'n'Drop</li>
                 <li>Demo Application</li>
@@ -37,6 +37,12 @@
     }
     if (Cookies.get("select") !== undefined) {
         document.getElementById("select").style.setProperty("text-decoration", "line-through")
+    }
+    if (Cookies.get("form") !== undefined) {
+        document.getElementById("form").style.setProperty("text-decoration", "line-through")
+    }
+    if (Cookies.get("iframe") !== undefined) {
+        document.getElementById("iframe").style.setProperty("text-decoration", "line-through")
     }
 </script>
 </body>
