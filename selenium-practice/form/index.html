@@ -15,7 +15,7 @@
     <div class="row">
         <div id="content" class="eleven column" style="margin-top: 10%">
             <h1>Form</h1>
-            <form>
+            <form id="testform">
                 <div>
                     <label>First Name:</label>
                     <input type="text" required>
@@ -25,7 +25,7 @@
                     <input type="text" required>
                 </div>
                 <div>
-                    <label>Email</label>
+                    <label>Email:</label>
                     <input type="email" required>
                 </div>
                 <div>
@@ -39,7 +39,7 @@
                 </div>
                 <div>
                     <label>Avatar:</label>
-                    <input type="file">
+                    <input type="file" required>
                 </div>
                 <div>
                     <label>Tell me something about yourself</label>
@@ -51,4 +51,20 @@
     </div>
 </div>
 </body>
+<script>
+    $("#testform").submit(function (event) {
+        showBack();
+        event.preventDefault();
+    });
+
+    function showBack() {
+        if ($("#back").length === 0) {
+            let label = document.createElement('label');
+            label.id = 'back';
+            label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+            content.append(label);
+            Cookies.set("form", "done")
+        }
+    }
+</script>
 </html>
