@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - Prompt, Alert and Confirm</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="content" class="eleven column" style="margin-top: 10%">
+            <h1>Prompt, Alert and Confirm</h1>
+            <button class="get">Get password</button>
+            <button class="set">Enter password</button>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    let password = Math.random().toString(36).substring(2);
+    $(".get").click(function () {
+        alert('Your password: ' + password);
+    });
+    $(".set").click(function () {
+        let result = prompt('Please, enter your password', '');
+        if (result === result) {
+            $(".set").after("<label>Great!</label><button class='return'>Return to menu</button>");
+        }
+        $(".return").click(function () {
+            let conf = confirm("Are you sure?");
+            if (conf) {
+                Cookies.set("alerts", "done");
+                window.location.href = "..";
+            }
+        })
+    });
+</script>
+</html>
