@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - HTML5 Drag'n'Drop</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="../css/shapes.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="content" class="eleven column" style="margin-top: 10%">
+            <h1>Drag'n'Drop</h1>
+            <div class="square black" ondrop="drop(event)" ondragover="dropOver(event)"></div>
+            <div id="red_square" class="square red" draggable="true" ondragstart="dragStart(event)"></div>
+            <div class="square black" ondrop="drop(event)" ondragover="dropOver(event)"></div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    function dropOver(ev) {
+        ev.preventDefault();
+    }
+
+    function dragStart(ev) {
+        ev.dataTransfer.setData("text", ev.target.id);
+    }
+
+    function drop(ev) {
+        ev.preventDefault();
+        var data = ev.dataTransfer.getData("text");
+        setTimeout(() => ev.target.remove(), Math.floor(Math.random() * 2000));
+    }
+</script>
+</html>

@@ -22,7 +22,7 @@
                 <li><a id="form" href="form">Form</a></li>
                 <li><a id="iframe" href="iframe">IFrame</a></li>
                 <li><a id="alerts" href="alerts">Prompt, Alert and Confirm</a></li>
-                <li>Drag'n'Drop</li>
+                <li><a id="dnd" href="dnd">Drag'n'Drop</a></li>
                 <li>Demo Application</li>
             </ol>
         </div>
@@ -46,6 +46,12 @@
     }
     if (Cookies.get("alerts") !== undefined) {
         $("#alerts").css("text-decoration", "line-through")
+    }
+    if (Cookies.get("alerts") !== undefined) {
+        $("#alerts").css("text-decoration", "line-through")
+    }
+    if (Cookies.get("dnd") !== undefined) {
+        $("#dnd").css("text-decoration", "line-through")
     }
 </script>
 </body>
