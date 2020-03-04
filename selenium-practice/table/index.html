@@ -1,0 +1,119 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - Table</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <link rel="stylesheet" href="../css/shapes.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div id="content" class="eleven column" style="margin-top: 10%">
+            <h1>Table</h1>
+            <table id="customers">
+                <tbody>
+                <tr>
+                    <th></th>
+                    <th>Company</th>
+                    <th>Contact</th>
+                    <th>Country</th>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Alfreds Futterkiste</td>
+                    <td>Maria Anders</td>
+                    <td>Germany</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Centro comercial Moctezuma</td>
+                    <td>Francisco Chang</td>
+                    <td>Mexico</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Ernst Handel</td>
+                    <td>Roland Mendel</td>
+                    <td>Austria</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Island Trading</td>
+                    <td>Helen Bennett</td>
+                    <td>UK</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Laughing Bacchus Winecellars</td>
+                    <td>Yoshi Tannamuri</td>
+                    <td>Canada</td>
+                </tr>
+                <tr>
+                    <td><input type="checkbox"></td>
+                    <td>Magazzini Alimentari Riuniti</td>
+                    <td>Giovanni Rovelli</td>
+                    <td>Italy</td>
+                </tr>
+                </tbody>
+            </table>
+            <input type="button" style="background-color: salmon" value="Delete"/>
+            <div>
+                <form>
+                    <div>
+                        <label>Company</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>Contact</label>
+                        <input type="text">
+                    </div>
+                    <div>
+                        <label>Country</label>
+                        <input type="text">
+                    </div>
+                    <input type="button" style="background-color: #0FA0CE" value="Add"/>
+                </form>
+            </div>
+        </div>
+    </div>
+</div>
+</body>
+<script>
+    $("input[value='Delete']").click(function () {
+        $("#customers input[type=checkbox]:checked").each(function () {
+            $(this).closest("tr")[0].remove();
+        })
+    })
+
+    $("input[value='Add']").click(function () {
+        let company = $("input[type='text']").eq(0).val();
+        let contact = $("input[type='text']").eq(1).val();
+        const country = $("input[type='text']").eq(2).val();
+        if (company === "") {
+            alert("Please enter a company name");
+            return;
+        }
+        if (contact === "") {
+            alert("Please enter a contact");
+            return;
+        }
+        if (country === "") {
+            alert("Please enter a country");
+            return;
+        }
+        $("#customers > tbody:last-child")
+            .append("                <tr>\n" +
+                "                    <td><input type=\"checkbox\"></td>\n" +
+                "                    <td>" + company + "</td>\n" +
+                "                    <td>" + contact + "</td>\n" +
+                "                    <td>" + country + "</td>\n" +
+                "                </tr>")
+    })
+</script>
+</html>
