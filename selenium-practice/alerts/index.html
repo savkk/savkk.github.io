@@ -28,7 +28,7 @@
     });
     $(".set").click(function () {
         let result = prompt('Please, enter your password', '');
-        if (result === result) {
+        if (result === password) {
             $(".set").after("<label>Great!</label><button class='return'>Return to menu</button>");
         }
         $(".return").click(function () {
