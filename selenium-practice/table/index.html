@@ -85,16 +85,25 @@
 </div>
 </body>
 <script>
+    $(function () {
+        Cookies.remove("table")
+    });
+
+    var remove = false;
+    var add = false;
     $("input[value='Delete']").click(function () {
         $("#customers input[type=checkbox]:checked").each(function () {
             $(this).closest("tr")[0].remove();
-        })
-    })
+            remove = true;
+        });
+        showBack();
+    });
 
     $("input[value='Add']").click(function () {
-        let company = $("input[type='text']").eq(0).val();
-        let contact = $("input[type='text']").eq(1).val();
-        const country = $("input[type='text']").eq(2).val();
+        let $input = $("input[type='text']");
+        let company = $input.eq(0).val();
+        let contact = $input.eq(1).val();
+        const country = $input.eq(2).val();
         if (company === "") {
             alert("Please enter a company name");
             return;
@@ -113,7 +122,22 @@
                 "                    <td>" + company + "</td>\n" +
                 "                    <td>" + contact + "</td>\n" +
                 "                    <td>" + country + "</td>\n" +
-                "                </tr>")
-    })
+                "                </tr>");
+        $input.each(function () {
+            $(this).val("");
+        });
+        add = true;
+        showBack();
+    });
+
+    function showBack() {
+        if (remove && add && Cookies.get("table") !== 'done') {
+            let label = document.createElement('label');
+            label.id = 'back';
+            label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+            content.append(label);
+            Cookies.set("table", "done")
+        }
+    }
 </script>
 </html>

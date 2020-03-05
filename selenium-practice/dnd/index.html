@@ -24,6 +24,8 @@
 </div>
 </body>
 <script>
+    var i = 2;
+
     function dropOver(ev) {
         ev.preventDefault();
     }
@@ -33,9 +35,22 @@
     }
 
     function drop(ev) {
+        i = i - 1;
         ev.preventDefault();
-        var data = ev.dataTransfer.getData("text");
-        setTimeout(() => ev.target.remove(), Math.floor(Math.random() * 2000));
+        const data = ev.dataTransfer.getData("text");
+        let timeout = Math.floor(Math.random() * 2000);
+        setTimeout(() => ev.target.remove(), timeout);
+        if (i === 0) {
+            setTimeout(() => showBack(), timeout);
+        }
+    }
+
+    function showBack() {
+        let label = document.createElement('label');
+        label.id = 'back';
+        label.innerHTML = "<a href='..'>Great! Return to menu</a>";
+        content.append(label);
+        Cookies.set("dnd", "done")
     }
 </script>
 </html>
