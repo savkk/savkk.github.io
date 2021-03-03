@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <title>Selenium Practice Page - Button</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="//fonts.googleapis.com/css?family=Raleway:400,300,600" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="../css/normalize.css">
+    <link rel="stylesheet" href="../css/skeleton.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.1/jquery.min.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/js-cookie@beta/dist/js.cookie.min.js"></script>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="eleven column" style="margin-top: 10%">
+            <h1>Select by id</h1>
+            <p>
+                <button id="fb" onclick="this.setAttribute('style','text-decoration: line-through')">First Button
+                </button>
+            </p>
+            <p>
+                <button id="sb" onclick="this.setAttribute('style','text-decoration: line-through')">
+                    Second<span> Button</span>
+                </button>
+            </p>
+            <p>
+                <button id="tb" onclick="this.setAttribute('style','text-decoration: line-through')">Third Button
+                </button>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eleven column" style="margin-top: 10%">
+            <h1>Find by class</h1>
+            <p>
+                <button class="button" onclick="this.setAttribute('style','text-decoration: line-through')">First
+                    Button
+                </button>
+            </p>
+            <p>
+                <button class="button-primary" onclick="this.setAttribute('style','text-decoration: line-through')">
+                    Second<span> Button</span>
+                </button>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eleven column" style="margin-top: 10%">
+            <h1>Find by Text</h1>
+            <p>
+                <button onclick="this.setAttribute('style','text-decoration: line-through')">First Button</button>
+            </p>
+            <p>
+                <button onclick="this.setAttribute('style','text-decoration: line-through')">Second<span> Button</span>
+                </button>
+            </p>
+            <p>
+                <button onclick="this.setAttribute('style','text-decoration: line-through')">Third Button</button>
+            </p>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eleven column" style="margin-top: 10%">
+            <h1>Find sibling element</h1>
+            <form>
+                <div>
+                    <label id="firstname">First Name:</label>
+                    <input required type="text">
+                </div>
+                <div>
+                    <label id="lastname">Last Name:</label>
+                    <input required type="text">
+                </div>
+                <div>
+                    <label id="email">Email:</label>
+                    <input required type="email">
+                </div>
+                <input type="submit" value="Submit">
+            </form>
+        </div>
+    </div>
+    <div class="row">
+        <div class="eleven column" style="margin-top: 10%">
+            <h1>Table</h1>
+            <table class="u-full-width">
+                <thead>
+                <tr>
+                    <th>Name</th>
+                    <th>Birthday</th>
+                    <th>Sex</th>
+                    <th>Location</th>
+                </tr>
+                </thead>
+                <tbody>
+                <tr>
+                    <td>Jim Morrison</td>
+                    <td>December 8, 1943</td>
+                    <td>Male</td>
+                    <td>Paris</td>
+                </tr>
+                <tr>
+                    <td>Amy Winehouse</td>
+                    <td>14 September 1983</td>
+                    <td>Female</td>
+                    <td>London</td>
+                </tr>
+                <tr>
+                    <td>Kurt Cobain</td>
+                    <td>February 20, 1967</td>
+                    <td>Male</td>
+                    <td>Seattle</td>
+                </tr>
+                <tr>
+                    <td>Alexander Bashlachev</td>
+                    <td>27 May 1960</td>
+                    <td>Male</td>
+                    <td>Leningrad</td>
+                </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+</div>
+</body>
+</html>
